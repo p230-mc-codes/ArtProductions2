@@ -1,1 +1,195 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ART Productions - Showcasing Sri Lankan Heritage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f3f3f3;
+            color: #333;
+        }
+
+        /* Smooth, waving background animation */
+        .slider-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(45deg, #3fb2e8, #d93232, #105391, #d4af37);
+            background-size: 400% 400%;
+            animation: waveAnimation 10s ease infinite;
+        }
+
+        @keyframes waveAnimation {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 50% 75%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 50% 25%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 300vw;
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .slide h1, .slide h2, .slide p {
+            color: #fff;
+        }
+
+        .slide p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        #logo {
+            width: 260px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        /* Navigation buttons */
+        .nav-buttons {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-buttons button {
+            background-color: #d4af37;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1.5em;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+
+        .nav-buttons button:hover {
+            background-color: #5a2d1a;
+        }
+
+        .products ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .products li {
+            margin: 10px 0;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #d23b3b;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slider Container -->
+    <div class="slider-container">
+        <div class="slides">
+
+            <!-- Slide 1: Welcome -->
+            <div class="slide" id="slide1">
+                <img id="logo" src="file:///C:/Users/ASUS/Downloads/DALL%C2%B7E%202025-01-11%2013.44.29%20-%20A%20sleek%20and%20modern%20logo%20design%20for%20an%20art%20production%20company.%20The%20logo%20features%20a%20minimalist%20design%20with%20abstract%20brushstroke%20elements%20in%20vibrant%20colo.webp" alt="ART Productions Logo">
+                <h2>Welcome to ART Productions</h2>
+                <p>
+                    <strong>Celebrating Sri Lankan heritage through art and creativity.</strong>
+                    <br>
+                    At ART Productions, we craft and curate exquisite products that reflect the vibrant culture and artistry of Sri Lanka. From intricate handicrafts to authentic spices, our collection tells the story of a land rich in tradition and innovation.
+                </p>
+            </div>
+
+            <!-- Slide 2: Our Products -->
+            <div class="slide" id="slide2">
+                <h2>Our Creations</h2>
+                <p>
+                    Discover our diverse range of Sri Lankan products, crafted with care and passion.
+                </p>
+                <ul>
+                    <li>Handcrafted Jewelry</li>
+                    <li>Traditional Artwork</li>
+                    <li>Sri Lankan Spices</li>
+                    <li>Eco-friendly Accessories</li>
+                    <li>Decorative Ceramics</li>
+                </ul>
+            </div>
+
+            <!-- Slide 3: Contact Us -->
+            <div class="slide" id="slide3">
+                <h2>Contact Us</h2>
+                <p>Email: <a href="mailto:info@artproductions.lk">info@artproductions.lk</a></p>
+                <p>Phone: +94 123 456 789</p>
+                <p>Address: 123 Artisan Street, Colombo, Sri Lanka</p>
+            </div>
+        </div>
+
+        <!-- Navigation buttons -->
+        <div class="nav-buttons">
+            <button id="prevBtn" aria-label="Previous Slide">&#10094;</button>
+            <button id="nextBtn" aria-label="Next Slide">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 ART Productions. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
+    </div>
+
+    <!-- JavaScript for Slide Navigation -->
+    <script>
+        const slides = document.querySelector('.slides');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentSlide = 0;
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function updateSlide() {
+            slides.style.transform = `translateX(-${currentSlide * 100}vw)`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateSlide();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlide();
+            }
+        });
+    </script>
+</body>
+</html>
